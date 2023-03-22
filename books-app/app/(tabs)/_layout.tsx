@@ -11,6 +11,10 @@ function TabBarIcon(props: {
   return <FontAwesome size={24} style={{ marginBottom: -3 }} {...props} />;
 }
 
+export const unstable_settings = {
+  initialRouteName: "home",
+};
+
 export default function TabLayout() {
   return (
     <Tabs
@@ -21,29 +25,32 @@ export default function TabLayout() {
           backgroundColor: "#212121",
           paddingTop: 8,
           height: 75,
+        },
+        tabBarLabelStyle: {
           marginBottom: 8,
         },
-        headerShadowVisible: false,
-        headerTitle: "",
-        headerLeft: () => <HeaderLeft />,
-        headerRight: () => <HeaderRight />,
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={24} name={"home"} color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome size={size} name={"home"} color={color} />
           ),
+
+          headerShadowVisible: false,
+          headerTitle: "",
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
         }}
       />
       <Tabs.Screen
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={24} name={"search"} color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome size={size} name={"search"} color={color} />
           ),
         }}
       />
@@ -51,8 +58,8 @@ export default function TabLayout() {
         name="library"
         options={{
           title: "Library",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={24} name={"book"} color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome size={size} name={"book"} color={color} />
           ),
         }}
       />
@@ -60,8 +67,8 @@ export default function TabLayout() {
         name="cart"
         options={{
           title: "Cart",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={24} name={"shopping-basket"} color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome size={size} name={"shopping-basket"} color={color} />
           ),
         }}
       />
